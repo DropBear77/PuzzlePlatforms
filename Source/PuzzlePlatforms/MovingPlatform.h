@@ -18,10 +18,17 @@ public:
 	AMovingPlatform();
 
 	UPROPERTY(EditAnywhere, Category = "MyVariables")
-	int MovingSpeed = 5;
-	
+	int Speed = 20;
+
+	UPROPERTY(EditAnywhere, Category = "MyVariables", Meta = (MakeEditWidget = true ))
+	FVector TargetLocation;
+
 protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
+
+private:
+	FVector GlobalTargetLocation;
+	FVector GlobalStartLocation;
 
 };
